@@ -19,7 +19,7 @@ public class StudentController {
 
     @GetMapping("/")
     public String Home() {
-        return "Welcome to homepage";
+        return "Welcome to students page";
     }
 
     @GetMapping("/all")
