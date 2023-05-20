@@ -1,9 +1,10 @@
-package com.security.peso.service.impl;
+package com.security.service.impl;
 
-import com.security.peso.model.User;
-import com.security.peso.repository.UserRepository;
-import com.security.peso.service.UserService;
+import com.security.model.User;
+import com.security.repository.UserRepository;
+import com.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAllUsers() {
-        return userRepository.findAll();
+        return userRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
     @Override

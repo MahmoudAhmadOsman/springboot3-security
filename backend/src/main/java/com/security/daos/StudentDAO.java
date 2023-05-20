@@ -1,6 +1,6 @@
-package com.security.peso.daos;
+package com.security.daos;
 
-import com.security.peso.model.Student;
+import com.security.model.Student;
 
 import java.util.List;
 import java.util.Map;

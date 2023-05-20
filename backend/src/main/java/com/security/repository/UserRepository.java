@@ -1,6 +1,6 @@
-package com.security.peso.repository;
+package com.security.repository;
 
-import com.security.peso.model.User;
+import com.security.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

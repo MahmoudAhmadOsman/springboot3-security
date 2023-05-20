@@ -1,6 +1,6 @@
-package com.security.peso.repository;
+package com.security.repository;
 
-import com.security.peso.model.Student;
+import com.security.model.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

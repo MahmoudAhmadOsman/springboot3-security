@@ -1,7 +1,7 @@
-package com.security.peso.controller;
+package com.security.controller;
 
-import com.security.peso.model.Student;
-import com.security.peso.service.StudentService;
+import com.security.model.Student;
+import com.security.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

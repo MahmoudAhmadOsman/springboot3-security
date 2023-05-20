@@ -1,8 +1,8 @@
-package com.security.peso.service;
+package com.security.service;
 
-import com.security.peso.daos.StudentDAO;
-import com.security.peso.model.Student;
-import com.security.peso.repository.StudentRepository;
+import com.security.daos.StudentDAO;
+import com.security.model.Student;
+import com.security.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
