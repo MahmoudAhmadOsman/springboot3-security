@@ -5,6 +5,7 @@ import com.security.repository.UserRepository;
 import com.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,9 @@ import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private UserRepository userRepository;
@@ -29,6 +33,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String saveUser(User user) {
+        //encode  pass before saving to the database
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         User user1 = userRepository.save(user);
         if (user1 != null && user1.getName() != "") {
