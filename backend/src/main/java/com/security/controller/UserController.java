@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/users")
+@RequestMapping()
 public class UserController {
 
 
@@ -20,14 +20,17 @@ public class UserController {
     private UserService userService;
 
 
-    @GetMapping("/all")
-    @PreAuthorize("hasAuthority('ADMIN', 'MANAGER')")
+    @GetMapping("/users/all")
+//    @PreAuthorize("hasAuthority('ADMIN')") // only 1 authority such as ADMIN or USER
+    @PreAuthorize("hasAnyAuthority('ADMIN','MANAGER')") // multiple authorities such as ['ADMIN', 'MANAGER','EMPLOYEE']
     public List<User> findAllUser() {
+
         return userService.findAllUsers();
     }
 
-    @PostMapping("/save")
-    @PreAuthorize("hasAuthority('ADMIN','MANAGER')")
+    @PostMapping("/users/save")
+//    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN','MANAGER')")
     public String saveUser(@RequestBody User user) {
         return userService.saveUser(user);
     }

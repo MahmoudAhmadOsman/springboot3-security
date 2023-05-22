@@ -23,16 +23,20 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/", "/students/all", "/students/{id}", "/students/save").permitAll()
+                .requestMatchers("/").permitAll()
+                //.requestMatchers("/students/all", "/students/{id}", "/students/save").hasAnyRole("USER", "ADMIN")
+                  .requestMatchers( "/students/all", "/students/{id}", "/students/save").permitAll()
                 .and()
                 .authorizeHttpRequests()
                 .requestMatchers("/users/all", "/users/save", "users/{name}").authenticated()
                 .and().formLogin()
-                .and().build();
+                .and()
+                .httpBasic()
+               .and().build();
     }
 
 
-    //Custom Users -2 - only with these users, you cannot login because you need passwordEncoder
+    //Custom Users -2 - only with these users, you cannot log in because you need passwordEncoder
 //    @Bean
 //    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
 //        UserDetails ADMIN = User.withUsername("mahmoud")
